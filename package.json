@@ -12,6 +12,9 @@
   "license": "ISC",
   "dependencies": {
     "babel-preset-env": "^1.4.0",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-redux": "^5.0.4",
     "redux": "^3.6.0"
   }
 }
