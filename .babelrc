@@ -2,5 +2,5 @@
 
 
 {
-  "presets": ["env"]
+  "presets": ["env", "react"]
 }
