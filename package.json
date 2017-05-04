@@ -1,0 +1,17 @@
+{
+  "name": "Redux-Example",
+  "version": "1.0.0",
+  "description": "You know, just a Redux Example App :D",
+  "main": "./js/index.js",
+  "scripts": {
+    "babel": "babel ./js/ -w -d ./js/dist/",
+    "webpack": "webpack --config webpack.config.js"
+  },
+  "keywords": [],
+  "author": "Justin Ho",
+  "license": "ISC",
+  "dependencies": {
+    "babel-preset-env": "^1.4.0",
+    "redux": "^3.6.0"
+  }
+}
