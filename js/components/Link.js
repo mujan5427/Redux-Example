@@ -1,26 +1,24 @@
-import React, { PropTypes } from 'react'
+import React from 'react';
 
-const Link = ({ active, children, onClick }) => {
+// Use object destructuring syntax
+// Extracting specify variable from Props Object that passed
+const Link = ({active, children, changeVisibility}) => {
+
   if (active) {
-    return <span>{children}</span>
+    return <span>{children}</span>;
   }
 
   return (
-    <a href="#"
-       onClick={e => {
-         e.preventDefault()
-         onClick()
-       }}
+    <a href="#" onClick={
+      (event) => {
+        event.preventDefault();
+        changeVisibility();
+      }
+    }
     >
       {children}
     </a>
-  )
-}
-
-Link.propTypes = {
-  active: PropTypes.bool.isRequired,
-  children: PropTypes.node.isRequired,
-  onClick: PropTypes.func.isRequired
-}
+  );
+};
 
 export default Link

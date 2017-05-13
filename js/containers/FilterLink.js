@@ -3,22 +3,35 @@ import { setVisibilityFilter } from '../actions'
 import Link from '../components/Link'
 
 const mapStateToProps = (state, ownProps) => {
+
   return {
-    active: ownProps.filter === state.visibilityFilter
-  }
-}
+    active: state.visibilityFilter === ownProps.filter
+  };
+};
 
 const mapDispatchToProps = (dispatch, ownProps) => {
+
   return {
-    onClick: () => {
-      dispatch(setVisibilityFilter(ownProps.filter))
+    changeVisibility: () => {
+      dispatch(setVisibilityFilter(ownProps.filter));
     }
-  }
-}
+  };
+};
+
+/*
+ * Combinde `state` and `dispatch` become single props object
+ * And pass it into <Link>
+ *
+ * For example:
+ *
+ * <FilterLink>
+ *  <Link props={props object}>
+ * </FilterLink>
+ */
 
 const FilterLink = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Link)
+)(Link);
 
-export default FilterLink
+export default FilterLink;

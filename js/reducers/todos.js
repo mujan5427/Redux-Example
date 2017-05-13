@@ -1,39 +1,42 @@
-const todo = (state = {}, action) => {
+const todo = (prevState = {}, action) => {
   switch (action.type) {
+
     case 'ADD_TODO':
       return {
         id: action.id,
-        text: action.text,
-        completed: false
-      }
+        completed: false,
+        text: action.text
+      };
+
     case 'TOGGLE_TODO':
-      if (state.id !== action.id) {
-        return state
+      if (prevState.id !== action.id) {
+        return prevState;
       }
 
-      return Object.assign({}, state, {
-        completed: !state.completed
-      })
+      return Object.assign({}, prevState, { completed: !prevState.completed });
 
     default:
-      return state
+      return prevState;
   }
 }
 
-const todos = (state = [], action) => {
+const todos = (prevState = [], action) => {
   switch (action.type) {
+
     case 'ADD_TODO':
       return [
-        ...state,
+        ...prevState,
         todo(undefined, action)
-      ]
+      ];
+
     case 'TOGGLE_TODO':
-      return state.map(t =>
-        todo(t, action)
-      )
+      return prevState.map(
+        (todoItem) => todo(todoItem, action)
+      );
+
     default:
-      return state
+      return prevState;
   }
 }
 
-export default todos
+export default todos;
